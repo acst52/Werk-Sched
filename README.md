@@ -1,7 +1,7 @@
 # Werk-Sched
 Daily planner / calendar for time management. You betta werk!
 
-
+![giphy](https://user-images.githubusercontent.com/116177485/210846078-b5e875bc-2057-4509-80b3-2565a05a25ef.gif)
 
 *** FROM CLONED REPO: ***
 
