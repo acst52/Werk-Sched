@@ -4,51 +4,60 @@
 
 $(function () {
  
-// OK so first of all, our daily schedule is going to have 1-hour long blocks of time that span 9AM-5PM.
-  // Each hour block is going to have its own div, and its own unique div ID, as specified in the HTML.
-  // Each block needs a start and an end time so Javascript knows when to change its color. 
-  // We should therefore store the div times as an object!
+// First, let's get the current date & time to display in the header:
 
-let divTimes = {
-    div1: {
-      start: dayjs("9:00 AM", "format like hh:mm? have to look at doc'n"),
-      end: dayjs("10:00 AM", "format")
+let currentDay = document.getElementById("currentDay");
+
+// let's update the time every 30 seconds?
+setInterval(() => {
+  currentDay.innerHTML = dayjs().format("MMMM D, YYYY hh:mm A");
+}, 1000);
+
+// Now, our daily schedule is going to have 1-hour long blocks of time that span 9AM-5PM.
+// Each hour block has its own div w/ unique div ID, as specified in the HTML.
+// Ea. div needs a start & end time so JavaScript knows when to add/remove past/present/future class. 
+    // We should therefore store the div times as an object!
+    
+  let divTimes = {
+    hour9: {
+      start: dayjs("9:00 AM", "hh:mm"),
+      end: dayjs("10:00 AM", "hh:mm")
     },
-    div2: {
-      start: dayjs("10:00 AM", "format"),
-      end: dayjs("11:00 AM", "format")
-    }
-    div3: {
-      start: dayjs("11:00 AM", "format"),
-      end: dayjs("11:59 AM", "format")
+    hour10: {
+      start: dayjs("10:00 AM", "hh:mm"),
+      end: dayjs("11:00 AM", "hh:mm")
     },
-    div4: {
-      start: dayjs("12:01 PM", "format"),
-      end: dayjs("1:00 PM", "format")
+    hour11: {
+      start: dayjs("11:00 AM", "hh:mm"),
+      end: dayjs("11:59 AM", "hh:mm")
     },
-    div5: {
-      start: dayjs("1:00 PM", "format"),
-      end: dayjs("2:00 PM", "format")
+    hour12: {
+      start: dayjs("12:01 PM", "hh:mm"),
+      end: dayjs("1:00 PM", "hh:mm")
     },
-    div6: {
-      start: dayjs("2:00 PM", "format"),
-      end: dayjs("3:00 PM", "format")
+    hour13: {
+      start: dayjs("13:00 PM", "hh:mm"),
+      end: dayjs("14:00 PM", "hh:mm")
     },
-    div7: {
-      start: dayjs("3:00 PM", "format"),
-      end: dayjs("4:00 PM", "format")
+    hour14: {
+      start: dayjs("14:00 PM", "hh:mm"),
+      end: dayjs("15:00 PM", "hh:mm")
     },
-    div8: {
-      start: dayjs("4:00 PM", "format"),
-      end: dayjs("5:00 PM", "format")
+    hour15: {
+      start: dayjs("15:00 PM", "hh:mm"),
+      end: dayjs("16:00 PM", "hh:mm")
+    },
+    hour16: {
+      start: dayjs("16:00 PM", "hh:mm"),
+      end: dayjs("17:00 PM", "hh:mm")
     }
   }
 
   // TODO: Add code to apply the past, present, or future class to each time
-  // block by comparing the id to the current hour. HINTS: How can the id
-  // attribute of each time-block be used to conditionally add or remove the
-  // past, present, and future classes? How can Day.js be used to get the
-  // current hour in 24-hour time?
+    // block by comparing the id to the current hour. HINTS: How can the id
+    // attribute of each time-block be used to conditionally add or remove the
+    // past, present, and future classes? How can Day.js be used to get the
+    // current hour in 24-hour time?
 
 // We want to loop through the divTimes obj above and change the diff div's colors dep
 // on before/during/after the CURRENT time... So sounds like it needs to be a for-loop.
@@ -83,7 +92,5 @@ for (let id in divTimes) {
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
-
-  // TODO: Add code to display the current date in the header of the page.
 
 });
