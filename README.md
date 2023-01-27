@@ -19,6 +19,8 @@ WHEN I click the save button for that timeblock
 THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
+
+ACCEPTANCE CRITERIA FROM: © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 ```
 
 #### The following animation demonstrates the application functionality:
