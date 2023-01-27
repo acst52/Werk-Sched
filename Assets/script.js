@@ -13,74 +13,28 @@ setInterval(() => {
   currentDay.innerHTML = dayjs().format("MMMM D, YYYY hh:mm A");
 }, 1000);
 
-// Now, our daily schedule is going to have 1-hour long blocks of time that span 9AM-5PM.
-// Each hour block has its own div w/ unique div ID, as specified in the HTML.
-// Ea. div needs a start & end time so JavaScript knows when to add/remove past/present/future class. 
-    // We should therefore store the div times as an object!
-    
-  let divTimes = {
-    hour9: {
-      start: dayjs("9:00 AM", "hh:mm"),
-      end: dayjs("10:00 AM", "hh:mm")
-    },
-    hour10: {
-      start: dayjs("10:00 AM", "hh:mm"),
-      end: dayjs("11:00 AM", "hh:mm")
-    },
-    hour11: {
-      start: dayjs("11:00 AM", "hh:mm"),
-      end: dayjs("11:59 AM", "hh:mm")
-    },
-    hour12: {
-      start: dayjs("12:01 PM", "hh:mm"),
-      end: dayjs("1:00 PM", "hh:mm")
-    },
-    hour13: {
-      start: dayjs("13:00 PM", "hh:mm"),
-      end: dayjs("14:00 PM", "hh:mm")
-    },
-    hour14: {
-      start: dayjs("14:00 PM", "hh:mm"),
-      end: dayjs("15:00 PM", "hh:mm")
-    },
-    hour15: {
-      start: dayjs("15:00 PM", "hh:mm"),
-      end: dayjs("16:00 PM", "hh:mm")
-    },
-    hour16: {
-      start: dayjs("16:00 PM", "hh:mm"),
-      end: dayjs("17:00 PM", "hh:mm")
+// let's add and remove the past/present/future classes based on time:
+function hourUpdater() {
+let currentHour = dayjs().hour();
+// for (let id in divTimes) {
+//   let hour = parseInt(id.split("-")[1]);
+//   let div = document.getElementById(id);
+$(".time-block").each(function(){ // loop though each of the time blocks
+const hour = parseInt($(this).attr("id").split("-")[1]); // split id to get hour to compare to curr hour:
+   if (hour < currentHour) {
+    $(this).addClass("past");
+      } else if (hour === currentHour) {
+    $(this).removeClass("past");
+    $(this).addClass("present");
+      } else {
+    $(this).removeClass("past");
+    $(this).removeClass("present");
+    $(this).addClass("future");
     }
-  }
-
-  // TODO: Add code to apply the past, present, or future class to each time
-    // block by comparing the id to the current hour. HINTS: How can the id
-    // attribute of each time-block be used to conditionally add or remove the
-    // past, present, and future classes? How can Day.js be used to get the
-    // current hour in 24-hour time?
-
-// We want to loop through the divTimes obj above and change the diff div's colors dep
-// on before/during/after the CURRENT time... So sounds like it needs to be a for-loop.
-
-// for (VARIABLE in OBJECT) { code } --> (let id in divTimes) --> means that the loop 
-  // will iterate over the keys of the divTims Obj, and the variable "id" will be 
-  // assigned the value of each key name. More specifically, (let id in divTimes) is 
-  // telling our for loop to iterate over each id in the object above. so it will 
-  // iterate over each time block, div1, div2 ... div8.
-
-for (let id in divTimes) {
-  let currentTime = dayjs();
-  let startTime = divTimes[id].start;
-  let endTime = divTimes[id].end;
-
-  if (currentTime.isBefore(startTime)) {
-    document.getElementById(id).style.backgroundColor = "green";
-  } else if (currentTime.isSame(startTime)) {
-    document.getElementById(id).style.backgroudColor = "red";
-  } else {
-    document.getElementById(id).style.backgroundColor = "grey";
-  }
+  })
 }
+hourUpdater();
+setInterval(hourUpdater, 10000);
 
   // TODO: Add a listener for click events on the save button. This code should
   // use the id in the containing time-block as a key to save the user input in
