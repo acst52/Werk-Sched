@@ -36,15 +36,19 @@ const hour = parseInt($(this).attr("id").split("-")[1]); // split id to get hour
 hourUpdater();
 setInterval(hourUpdater, 10000);
 
-  // TODO: Add a listener for click events on the save button. This code should
-  // use the id in the containing time-block as a key to save the user input in
-  // local storage. HINT: What does `this` reference in the click listener
-  // function? How can DOM traversal be used to get the "hour-x" id of the
-  // time-block containing the button that was clicked? How might the id be
-  // useful when saving the description in local storage?
-
   // TODO: Add code to get any user input that was saved in localStorage and set
   // the values of the corresponding textarea elements. HINT: How can the id
   // attribute of each time-block be used to do this?
+
+let saveButton = document.getElementsByClassName("saveBtn");
+
+saveButton.addEventListener("click", function(){
+  let textArea = document.getElementsByClassName("description")[0];
+  let userInput = textArea.value;
+  localStorage.setItem("userInput", userInput);
+});
+
+// ... to apply that code to accommodate all textareas / divs, you have to associate it 
+  // with the div ID so we can save & render it there on refresh!
 
 });
