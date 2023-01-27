@@ -1,8 +1,6 @@
 # Third-Party APIs: Werk-Sched
 For this challenge, we were tasked with creating a calendar application by modifying starter code & using day.js. You betta werk!
 
-![giphy](https://user-images.githubusercontent.com/116177485/210846078-b5e875bc-2057-4509-80b3-2565a05a25ef.gif)
-
 ## Acceptance Criteria
 
 ```md
@@ -20,7 +18,8 @@ THEN the text for that event is saved in local storage
 WHEN I refresh the page
 THEN the saved events persist
 
-ACCEPTANCE CRITERIA FROM: © 2022 Trilogy Education Services, LLC, a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
+ACCEPTANCE CRITERIA FROM: © 2022 Trilogy Education Services, LLC, 
+a 2U, Inc. brand. Confidential and Proprietary. All Rights Reserved.
 ```
 
 #### The following animation demonstrates the application functionality:
@@ -28,3 +27,5 @@ ACCEPTANCE CRITERIA FROM: © 2022 Trilogy Education Services, LLC, a 2U, Inc. br
 ![Werk Sched: A user enters text into color-coded hour blocks, which are saved to local storage](https://user-images.githubusercontent.com/116177485/215161652-af585c0f-0f23-41a2-9bdc-bc12f7725c5e.gif)
 
 #### Thank you for reading! You can contact me with questions via the email in my profile!
+
+![giphy](https://user-images.githubusercontent.com/116177485/210846078-b5e875bc-2057-4509-80b3-2565a05a25ef.gif)
